@@ -53,7 +53,7 @@ input {
     border: 1px solid #86A2A5;
 }
 
-input:hover{
+input:hover, textarea:hover{
     border: 1px solid #0C7D69;
     cursor: pointer;
 }
@@ -91,23 +91,13 @@ input:hover{
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
+    flex-basis: 1000%;
     gap: 16px;
     flex-wrap: wrap;
 }
 
-.query_type_btn{
-    display: flex;
-    border: 1px solid #86A2A5;
-    border-radius: 8px;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 271px;
-    padding: 0px 24px;
-    height: 51px;
-    gap: 12px;
-}
 
-.query_type_btn:active{
+.query_lable:active{
     background-color: #E0F1E8;
     cursor: pointer;
 }
@@ -133,8 +123,75 @@ input:hover{
     align-items: center;
 }
 
-.query_btn:checked {
-
+.query_btn:checked + .query_lable::before {
+    background-color: #86A2A5;
     appearance: none;
     color: #E0F1E8;
+}
+
+.message{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 137px;
+    max-height: 295px;
+}
+
+
+.message > textarea{
+    resize: none;
+    border: 1px solid #86A2A5;
+    border-radius: 8px;
+    width: 100%;
+    
+}
+
+textarea:hover{
+    border: 1px solid #0C7D69;
+}
+
+.checkbox{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.custom_checkbox input{
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.custom_checkbox .change_checkbox{
+    position: relative;
+    display: inline-block;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #86A2A5;
+    border-radius: 2px;
+}
+
+.custom_checkbox .change_checkbox:after{
+    content: "";
+    position: absolute;
+    
+    left: 6px;
+    top: 3px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-radius: 1px;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+}
+
+.custom_checkbox input:checked ~ .change_checkbox:after{
+  display: block;
+  
+}
+.custom_checkbox input:checked ~ .change_checkbox{
+    background-color: #0C7D69;
+    border: #0C7D69;
 }
