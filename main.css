@@ -2,6 +2,7 @@ body {
     background-color: #E0F1E8;
     display: flex;
     justify-content: center;
+    transition: background-color 1s ease-in-out;
     
 }
 
@@ -49,9 +50,17 @@ body {
 }
 
 input {
+   
+
     border-radius: 8px;
     border: 1px solid #86A2A5;
 }
+
+label, span{
+      transition: all 0.3s ease-in-out;
+
+}
+
 
 input:hover, textarea:hover{
     border: 1px solid #0C7D69;
@@ -65,7 +74,7 @@ input:hover, textarea:hover{
     height: 51px;
     flex-shrink: 1;
     flex-grow: 1;
-    
+    font-size: larger;
 }
 
 .email_adr{
@@ -97,7 +106,7 @@ input:hover, textarea:hover{
 }
 
 
-.query_lable:active{
+.query_lable:hover{
     background-color: #E0F1E8;
     cursor: pointer;
 }
@@ -123,11 +132,53 @@ input:hover, textarea:hover{
     align-items: center;
 }
 
-.query_btn:checked + .query_lable::before {
-    background-color: #86A2A5;
+.query_lable input{
     appearance: none;
-    color: #E0F1E8;
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
 }
+
+.query_lable .changed_radio{
+    position: relative;
+    display: inline-block;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #86A2A5;
+    border-radius: 50%;
+}
+
+.query_lable .changed_radio::after{
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    border-width: 0 1.5px 1.5px 0;
+   
+}
+
+.query_lable input:checked ~ .changed_radio::after{
+    display: block;
+    background-color: #0C7D69;
+
+}
+
+.query_lable input:hover ~ .changed_radio::after{
+    background-color: #E0F1E8;
+
+}
+
+.query_lable input:checked ~ .changed_radio{
+    
+    border:2px solid #0C7D69;
+}
+
 
 .message{
     display: flex;
@@ -154,6 +205,7 @@ textarea:hover{
     display: flex;
     gap: 16px;
     align-items: center;
+    width: 100%;
 }
 
 .custom_checkbox input{
@@ -167,8 +219,8 @@ textarea:hover{
     position: relative;
     display: inline-block;
     left: 0;
-    height: 18px;
-    width: 18px;
+    height: 16px;
+    width: 16px;
     border: 1px solid #86A2A5;
     border-radius: 2px;
 }
@@ -189,9 +241,33 @@ textarea:hover{
 
 .custom_checkbox input:checked ~ .change_checkbox:after{
   display: block;
-  
 }
 .custom_checkbox input:checked ~ .change_checkbox{
+    width: 18px;
+    height: 18px;
     background-color: #0C7D69;
     border: #0C7D69;
+}
+
+
+.submit_button{
+    display: flex;
+    width: 100%;
+}
+
+.submit_button button{
+    text-align: center;
+    width: 100%;
+    background-color: #0C7D69;
+    border: #0C7D69;
+    border-radius: 8px;
+    height: 59px;
+    color: white;
+    font-size: large;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.submit_button button:hover{
+    background-color: #0B0B43;
 }
