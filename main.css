@@ -21,47 +21,29 @@ body{
     flex-direction: column;
     gap: 40px;
     width: 460px;
+    height: 471px;
 }
 
 .logo {
     width: 100%;
-    height: 52px;
-    position: relative;
+    height: 36px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-.tic-tac{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 0;
-    height: 100%;
-    display: flex;
-    margin-left: -25px;
-}
-
-
-
 .krest {
     width: 37px;
     height: 10px;
     border-radius: 3px;
     background-color: var(--light-blue);
 }
-
-.krest-1{
-    transform: translate(18.5px, 0) rotate(45deg);
-    
+.krest-1 {
+    transform: translate(15px, 0) rotate(45deg);
 }
-
-.krest-2{
-    transform: translate(-18.5px, 0) rotate(-45deg);
-    
+.krest-2 {
+    transform: translate(-22px, 0) rotate(-45deg);
 }
-
 
 .circult{
     width: 32px;
@@ -73,66 +55,133 @@ body{
     
 }
 
-
-.turn{
+.content__player-mark{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    width: 140px;
-    height: 100%;
-    border: none;
-    border-radius: 10px;
-    background-color: #1f3641;
-    box-shadow: 0 5px #10212a;
-}
-
-.krestik{
-    width: 26px;
-    height: 7px;
-    background-color: #a8bfc9;
-    border-radius: 2px
-}
-
-.krestik-1{
-    transform: rotate(45deg);
-}
-
-.krestik-2{
-    transform: rotate(-45deg) translate(-18px, -18px);
-}
-
-.turn p{
-    margin-left: -20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #a8bfc9;
-}
-
-.heading{
-    width: 52px;
-    height: 52px;
-    background-color: #A8BFC9;
-    border-radius: 10px;
-    position: absolute;
-    right: 0;
-    display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.playground{
-    display: grid;
-    grid-template-areas: "card card card"
-                        "card card card"
-                        "card card card";
-                        gap: 20px;
-}
-
-
-.card{
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    height: 205px;
     background-color: #1f3641;
     border-radius: 15px;
-    box-shadow: 0 5px #10212a;
+    box-shadow: 0 10px #10212a;
+    color: #A8BFC9;
+    text-align: center;
+}
+
+
+
+.mark-choose{
+    display: flex;
+    width: 412px;
+    height: 72px;
+    padding: 9px 7px;
+    background-color: #1A2A33;
+    border-radius: 10px;
+}
+
+.mark-choose input{
+    visibility: hidden;
+    
+}
+
+label{
+   width: 50%;
+    height: 100%; 
+}
+
+.changed_radio{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: -20px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.changed_radio:hover{
+    position: relative;
+    background-color: #A8BFC9;
+    opacity: 0.05;
+}
+
+.changed_radio:hover .circult-2{
+    border-color: #1A2A33;
+    position: absolute;
+} 
+
+
+
+.krest-3{
+    transform: translateX(18.5px) rotate(45deg);
+    background-color: #A8BFC9;
+}
+
+.krest-4{
+    transform: translateX(-18.5px) rotate(-45deg);
+    background-color: #A8BFC9;
+}
+.changed_radio:hover .krest-3,
+.changed_radio:hover .krest-4{
+    background-color: #1A2A33;
+}
+input[type = "radio"]:checked ~ .changed_radio{
+    background-color: #A8BFC9;
+}
+
+input[type="radio"]:checked + .changed_radio .circult-2 {
+border-color: #1A2A33;
+}
+input[type="radio"]:checked + .changed_radio .krest-3,
+input[type="radio"]:checked + .changed_radio .krest-4 {
+background-color: #1A2A33;
+}
+.circult-2{
+    width: 32px;
+    height: 32px;
+    border: solid 10px #A8BFC9;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.content__btns{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.content__btns input[type = "button"]{
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1A2A33;
+}
+
+.content__btns input[type = "button"]:first-child{
+    background-color: var(--light-yellow);
+    box-shadow: 0 7px #cc8b13;
+}
+
+.content__btns input[type = "button"]:first-child:hover{
+    background-color: #FFC860;
+}
+
+.content__btns input[type = "button"]:last-child{
+    background-color: var(--light-blue);
+    box-shadow: 0 7px #118c87;
+}
+
+.content__btns input[type = "button"]:last-child:hover{
+    background-color: #65E9E4;
 }
